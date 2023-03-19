@@ -1,6 +1,7 @@
 <template>
 
-  <div></div>
+  <div id="navbar"><img width="25vw" src="/letter-f-16.ico"/></div>
+
     <div id="htmlPage">
       <div id="headline">Innovative designs for forward-thinking brands</div>
     </div>
@@ -157,6 +158,18 @@ onMounted(() => {
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Rubik:wght@500&display=swap');
+
+#navbar{
+  font-family: 'Comfortaa', cursive;
+  padding: 5vh 5vw;
+  overflow: hidden;
+  position: fixed;
+  color: white;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+  background-color: transparent;
+}
 
 #htmlPage{
   overflow-x: hidden;
