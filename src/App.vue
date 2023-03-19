@@ -16,9 +16,9 @@
   <div id="contact">
     <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
     <div style="margin: 0 5vw;">
-    <img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" />
-    <img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" />
-    <img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" />
+    <a href="https://www.linkedin.com/in/fpimentel/"><img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" /></a>
+    <a href="https://github.com/fpimentel-threejs/"><img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" /></a>
+    <a href="https://www.instagram.com/rxnando/"><img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" /></a>
   </div>
 
 
