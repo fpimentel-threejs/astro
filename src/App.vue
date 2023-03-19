@@ -7,10 +7,10 @@
   </div>
 
   <div id="htmlPage3">
-    <img id="clouds" src="clouds.png"/>
-    <img id="clouds2" src="clouds.png"/>
-    <img id="clouds3" src="clouds.png"/>
-    <img id="clouds4" src="clouds.png"/>
+    <img id="clouds" src="/clouds.png"/>
+    <img id="clouds2" src="/clouds.png"/>
+    <img id="clouds3" src="/clouds.png"/>
+    <img id="clouds4" src="/clouds.png"/>
   </div>
 
   <div id="contact">
