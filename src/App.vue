@@ -1,28 +1,25 @@
 <template>
-  <div id="htmlPage">
-  </div>
+    <div id="htmlPage">
+    </div>
 
-  <div id="htmlPage2">
+    <div id="htmlPage2">
+    </div>
 
-  </div>
+    <div id="htmlPage3">
+      <img id="clouds" src="/clouds.png"/>
+      <img id="clouds2" src="/clouds.png"/>
+      <img id="clouds3" src="/clouds.png"/>
+      <img id="clouds4" src="/clouds.png"/>
+    </div>
 
-  <div id="htmlPage3">
-    <img id="clouds" src="/clouds.png"/>
-    <img id="clouds2" src="/clouds.png"/>
-    <img id="clouds3" src="/clouds.png"/>
-    <img id="clouds4" src="/clouds.png"/>
-  </div>
-
-  <div id="contact">
-    <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
-    <div style="margin: 0 5vw;">
-    <a href="https://www.linkedin.com/in/fpimentel/"><img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" /></a>
-    <a href="https://github.com/fpimentel-threejs/"><img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" /></a>
-    <a href="https://www.instagram.com/rxnando/"><img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" /></a>
-  </div>
-
-
-  </div>
+    <div id="contact">
+      <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
+      <div style="margin: 0 5vw;">
+        <a href="https://www.linkedin.com/in/fpimentel/"><img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" /></a>
+        <a href="https://github.com/fpimentel-threejs/"><img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" /></a>
+        <a href="https://www.instagram.com/rxnando/"><img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" /></a>
+      </div>
+    </div>
 
   <Renderer ref="rendererC" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
     <Camera ref="cameraC" :position="{ z: -20 }" />
@@ -255,6 +252,7 @@ onMounted(() => {
 }
 
 body {
+  overflow-x: hidden;
   overflow-y: auto;
   padding: 0;
   margin: 0;
