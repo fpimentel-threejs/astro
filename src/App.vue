@@ -1,5 +1,8 @@
 <template>
+
+  <div></div>
     <div id="htmlPage">
+      <div id="headline">Innovative designs for forward-thinking brands</div>
     </div>
 
     <div id="htmlPage2">
@@ -153,7 +156,7 @@ onMounted(() => {
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Rubik:wght@500&display=swap');
 
 #htmlPage{
   overflow-x: hidden;
@@ -163,6 +166,14 @@ onMounted(() => {
   font-size: 10vw;
   height: 100vh;
   width: 100vw;
+}
+
+#headline{
+  margin: 30vh 0vw 30vh 40vw;
+  width: 50vw;
+  font-size: 50%;
+  font-family: 'Rubik', sans-serif;
+  justify-items: center;
 }
 
 #htmlPage2{
