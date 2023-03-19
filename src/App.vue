@@ -204,5 +204,6 @@ canvas {
   height: 100vh;
   width: 100vw;
   z-index: 10;
+  pointer-events: none;
 }
 </style>
