@@ -14,14 +14,29 @@
   </div>
 
   <div id="contact">
+    <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
+    <div style="margin: 0 5vw;">
+    <img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" />
+    <img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" />
+    <img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" />
+  </div>
+
+
   </div>
 
   <Renderer ref="rendererC" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
     <Camera ref="cameraC" :position="{ z: -20 }" />
     <Scene>
       <AmbientLight :intensity="1" :position="{ y: 0, z: 0 }" />
-      <Points ref="pointsC" :position="{y: 0,z: 50}"/>
-      <Points ref="pointsD" :position="{y: 0,z: 50}"/>
+      <Points ref="pointsC" :position="{y: 0,z: -30}"/>
+      <Points ref="pointsD" :position="{y: 0,z: -30}"/>
+      <Group ref="satteliteC" :rotation="{x: 1, y: 1, z: 1}">
+        <Cylinder :rotation="{z: 90*Math.PI /180}" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg" /></StandardMaterial></Cylinder>
+        <Cylinder :position="{y: 2}" :radiusTop=".3" :radiusBottom=".1" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
+        <Cylinder :position="{y: -2}" :radiusTop=".1" :radiusBottom=".3" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
+        <Box :position="{y: 6}" :width="2" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
+        <Box :position="{y: -6}" :width="1.5" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
+      </Group>
 
     </Scene>
   </Renderer>
@@ -30,17 +45,48 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs'
-import {Vector3, BufferAttribute, BufferGeometry, PointsMaterial} from "three";
+import { StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs'
+import { Vector3, BufferAttribute, BufferGeometry, PointsMaterial} from "three";
+import * as THREE from 'three'
 const rendererC = ref()
 const pointsC = ref()
 const pointsD = ref()
 const cameraC = ref()
+const satteliteC = ref()
+
+function createCircleTexture(color, size) {
+  var matCanvas = document.createElement('canvas');
+  matCanvas.width = matCanvas.height = size;
+  var matContext = matCanvas.getContext('2d');
+  // create texture object from canvas.
+  var texture = new THREE.Texture(matCanvas);
+  // Draw a circle
+  var center = size / 2;
+  matContext.beginPath();
+  matContext.arc(center, center, size/2, 0,  Math.PI, false);
+  matContext.arc(center, center, size/2, Math.PI,  2*Math.PI, false);
+  matContext.closePath();
+  matContext.fillStyle = color;
+  matContext.fill();
+  // need to set needsUpdate
+  texture.needsUpdate = true;
+  // return a texture made from the canvas
+  return texture;
+}
 
 const starMaterial = new PointsMaterial({
-  size: .17,
-  color: 0xffffff
-})
+  size: .5,
+  map: createCircleTexture('#ffffff', 256),
+  transparent: true,
+  depthWrite: false
+});
+
+const starMaterial2 = new PointsMaterial({
+  size: 1,
+  map: createCircleTexture('#ffffff', 256),
+  transparent: true,
+  depthWrite: false
+});
 
 const geometry = new BufferGeometry();
 const geometry2 = new BufferGeometry();
@@ -48,7 +94,7 @@ const geometry2 = new BufferGeometry();
 const getRandomParticlePos = (particleCount) => {
   const arr = new Float32Array(particleCount * 3);
   for(let i = 0; i < particleCount; i++) {
-    arr[i] = (Math.random() - .5) * 100;
+    arr[i] = (Math.random() - .5) * 300;
   }
   return arr;
 }
@@ -56,19 +102,19 @@ const getRandomParticlePos = (particleCount) => {
 const getRandomParticlePos2 = (particleCount) => {
   const arr = new Float32Array(particleCount * 3);
   for(let i = 0; i < particleCount; i++) {
-    arr[i] = (Math.random() - .5) * 150;
+    arr[i] = (Math.random() - .5) * 400;
   }
   return arr;
 }
 
 geometry.setAttribute(
     "position",
-    new BufferAttribute(getRandomParticlePos(7000),3)
+    new BufferAttribute(getRandomParticlePos(4000),3)
 );
 
 geometry2.setAttribute(
     "position",
-    new BufferAttribute(getRandomParticlePos2(7000),3)
+    new BufferAttribute(getRandomParticlePos2(4000),3)
 );
 
 onMounted(() => {
@@ -77,21 +123,31 @@ onMounted(() => {
   const points2 = pointsD.value
   const camera = cameraC.value.camera
   const rendererRef = rendererC.value.renderer
+  const sattelite = satteliteC.value.group
 
 
   points1.setMaterial(starMaterial)
   points1.setGeometry(geometry)
 
-  points2.setMaterial(starMaterial)
+  points2.setMaterial(starMaterial2)
   points2.setGeometry(geometry2)
 
   function updateCamera() {
     camera.updateProjectionMatrix()
   }
 
+  let time = 0
+
   renderer.onBeforeRender(() => {
-    points1.mesh.rotation.x += .0006
-    points2.mesh.rotation.x += .00009
+
+    time++;
+
+    points1.mesh.rotation.x -= .00064
+    points2.mesh.rotation.x -= .0004
+
+    sattelite.position.x = Math.cos( time/500 ) * 4 + 20;
+    sattelite.position.y = Math.cos( time/500 ) * 5 + 10;
+    sattelite.position.z = Math.cos( time/100 ) * 2 + 100;
 
     updateCamera()
   })
@@ -99,6 +155,9 @@ onMounted(() => {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
 #htmlPage{
   overflow-x: hidden;
   position: absolute;
@@ -133,15 +192,16 @@ onMounted(() => {
 }
 
 #contact{
+  font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
   overflow-y: hidden;
   position: absolute;
-  background-color: transparent;
+  background-image: linear-gradient(transparent, white 80%);
   color: black;
-  margin: 250vh 20vw 0 20vw;
-  font-size: 10vw;
-  height: 50vh;
-  width: 60vw;
+  margin: 220vh 0vw 0 0vw;
+  font-size: 5vw;
+  height: 80vh;
+  width: 100vw;
   z-index: 10;
 }
 
@@ -186,9 +246,11 @@ onMounted(() => {
 }
 
 @keyframes cloud {
-  0% {scale: 100%; translate: 0 0; opacity: 0}
-  30% {opacity: 15}
-  60% {opacity: 100}
+  0% {scale: 100%; translate: 0 0; opacity: 0;}
+  30% {opacity: 40}
+  40% {opacity: 100}
+  50% {opacity: 30}
+  70% {opacity: 20}
   100% {scale: 160%; translate: 40vw 40vh; opacity: 0}
 }
 
