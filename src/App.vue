@@ -7,6 +7,7 @@
     </div>
 
     <div id="htmlPage2"><div style="padding-top: 20vh">
+      <div id="mywork">My Work</div>
       <div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div>
       <div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div>
       <div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div>
@@ -38,6 +39,7 @@
       <Points ref="pointsD" :position="{y: 0,z: -30}"/>
       <Group ref="satteliteC" :rotation="{x: 1, y: 1, z: 1}">
         <Cylinder :rotation="{z: 90*Math.PI /180}" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg" /></StandardMaterial></Cylinder>
+        <Cylinder :rotation="{z: 90*Math.PI /180}" :height="6" :radiusTop=".3" :radiusBottom="2"><StandardMaterial><Texture src="/spacemetal1.jpg" /></StandardMaterial></Cylinder>
         <Cylinder :position="{y: 2}" :radiusTop=".3" :radiusBottom=".1" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
         <Cylinder :position="{y: -2}" :radiusTop=".1" :radiusBottom=".3" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
         <Box :position="{y: 6}" :width="2" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
@@ -51,7 +53,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs'
+import { StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs';
 import { Vector3, BufferAttribute, BufferGeometry, PointsMaterial} from "three";
 import * as THREE from 'three'
 const rendererC = ref()
@@ -207,10 +209,15 @@ onMounted(() => {
   background-image: linear-gradient(black, rgb(48,120,164));
 }
 
+#mywork{
+  font-family: 'Rubik', sans-serif;
+  border-bottom: white solid 1px;
+}
+
 #portfolio{
   display: inline-block;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   margin: 3vh 3vh;
   border: solid beige 1px;
   background-color: beige;
@@ -219,8 +226,8 @@ onMounted(() => {
 
 #portPics{
   margin: 10px 15px 0 15px;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border-radius: 5%;
   box-shadow: 3px 3px 5px black;
 }
