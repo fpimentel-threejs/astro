@@ -7,7 +7,7 @@
     </div>
 
     <div id="htmlPage2"><div style="padding-top: 20vh">
-      <div id="mywork">My Work</div>
+      <div id="mywork">MY WORK</div>
       <div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div>
       <div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div>
       <div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div>
@@ -200,18 +200,17 @@ onMounted(() => {
   font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
   position: absolute;
-  color: white;
+  color: #fce5cd;
   margin-top: 100vh;
   padding: 0 10vw;
   font-size: 10vw;
   height: 100vh;
-  width: 100vw;
+  width: 80vw;
   background-image: linear-gradient(black, rgb(48,120,164));
 }
 
 #mywork{
-  font-family: 'Rubik', sans-serif;
-  border-bottom: white solid 1px;
+  font-family: 'Comfortaa', cursive;
 }
 
 #portfolio{
@@ -233,11 +232,10 @@ onMounted(() => {
 }
 
 #description{
-  border-radius: 0px;
   color: white;
   width: 25vw;
-  padding: 1vh 1vw;
-  margin: 3vh 5px 0 0vw;
+  padding: 1vh 0vw;
+  margin: 3vh 5px 0 0;
   font-size: 1vw;
 }
 
