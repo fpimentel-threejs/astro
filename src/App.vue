@@ -3,7 +3,7 @@
   <div id="navbar"><img width="25vw" src="/letter-f-16.ico"/></div>
 
     <div id="htmlPage">
-      <div id="headline">Innovative designs for forward-thinking brands</div>
+      <div id="headline">Innovative designs for modern ventures</div>
     </div>
 
     <div id="htmlPage2">
