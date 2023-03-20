@@ -6,13 +6,14 @@
       <div id="headline">Innovative designs for forward-thinking brands</div>
     </div>
 
-    <div id="htmlPage2"><div style="padding-top: 20vh">
+    <div id="htmlPage2">
+      <div style="padding-top: 20vh">
       <div id="mywork">MY WORK</div>
-      <div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div>
-      <div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div>
-      <div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div>
-      <div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="description">Senior Design Project - VR Game</div></div>
-    </div>
+      <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div></a>
+      <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div></a>
+      <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div></a>
+      <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="description">Senior Design Project - VR Game</div></div></a>
+      </div>
     </div>
 
     <div id="htmlPage3">
