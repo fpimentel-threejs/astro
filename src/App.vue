@@ -6,7 +6,12 @@
       <div id="headline">Innovative designs for forward-thinking brands</div>
     </div>
 
-    <div id="htmlPage2">
+    <div id="htmlPage2"><div style="padding-top: 20vh">
+      <div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div>
+      <div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div>
+      <div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div>
+      <div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="description">Senior Design Project - VR Game</div></div>
+    </div>
     </div>
 
     <div id="htmlPage3">
@@ -190,14 +195,43 @@ onMounted(() => {
 }
 
 #htmlPage2{
+  font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
   position: absolute;
   color: white;
   margin-top: 100vh;
+  padding: 0 10vw;
   font-size: 10vw;
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(black, rgb(48,120,164));
+}
+
+#portfolio{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 3vh 3vh;
+  border: solid beige 1px;
+  background-color: beige;
+  border-radius: 5%;
+}
+
+#portPics{
+  margin: 10px 15px 0 15px;
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+  box-shadow: 3px 3px 5px black;
+}
+
+#description{
+  border-radius: 0px;
+  color: white;
+  width: 25vw;
+  padding: 1vh 1vw;
+  margin: 3vh 5px 0 0vw;
+  font-size: 1vw;
 }
 
 #htmlPage3{
