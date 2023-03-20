@@ -9,10 +9,10 @@
     <div id="htmlPage2">
       <div style="padding-top: 20vh">
       <div id="mywork">MY WORK</div>
-      <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="description">Resume Page</div></div></a>
-      <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="description">Freelance Work Promotion</div></div></a>
-      <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="description">Solar System Model</div></div></a>
-      <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="description">Senior Design Project - VR Game</div></div></a>
+      <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="overlay">CLICK ME</div></div></a>
+      <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="overlay">CLICK ME</div></div></a>
+      <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="overlay">CLICK ME</div></div></a>
+      <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="overlay">CLICK ME</div></div></a>
       </div>
     </div>
 
@@ -165,9 +165,7 @@ onMounted(() => {
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Rubik:wght@500&display=swap');
-
-#navbar{
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');#navbar{
   font-family: 'Comfortaa', cursive;
   padding: 5vh 5vw;
   overflow: hidden;
@@ -201,7 +199,7 @@ onMounted(() => {
   font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
   position: absolute;
-  color: #fce5cd;
+  color: #ffefff;
   margin-top: 100vh;
   padding: 0 10vw;
   font-size: 10vw;
@@ -211,7 +209,7 @@ onMounted(() => {
 }
 
 #mywork{
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Roboto', cursive;
 }
 
 #portfolio{
@@ -219,9 +217,44 @@ onMounted(() => {
   width: 100px;
   height: 100px;
   margin: 3vh 3vh;
-  border: solid beige 1px;
   background-color: beige;
   border-radius: 5%;
+}
+
+#overlay{
+  display: none;
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  opacity: 0;
+  background-color: gray;
+  border-radius: 5%;
+  z-index: 10;
+  font-size: 30px;
+  color: #ffefff;
+  margin: 10px 15px 0 15px;
+}
+
+#overlay:hover {
+  animation: portfol;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+#overlay:not(:hover) {
+  animation: offhover;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes portfol {
+  0% {opacity: 0}
+  100% {opacity: 70%}
+}
+
+@keyframes offhover {
+  0% {opacity: 70%}
+  100% {opacity: 0}
 }
 
 #portPics{
@@ -230,14 +263,6 @@ onMounted(() => {
   height: 110px;
   border-radius: 5%;
   box-shadow: 3px 3px 5px black;
-}
-
-#description{
-  color: white;
-  width: 25vw;
-  padding: 1vh 0vw;
-  margin: 3vh 5px 0 0;
-  font-size: 1vw;
 }
 
 #htmlPage3{
