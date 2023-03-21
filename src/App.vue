@@ -4,17 +4,10 @@
 
   <div id="htmlPage">
     <div id="headline">Innovative designs for modern ventures</div>
-
+    <div id="scroll">scroll down</div>
   </div>
 
   <div id="htmlPage2">
-    <!--<div style="padding-top: 20vh">
-    <div id="mywork">MY WORK</div>
-    <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="overlay">CLICK ME</div></div></a>
-    <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="overlay">CLICK ME</div></div></a>
-    <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="overlay">CLICK ME</div></div></a>
-    <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="overlay">CLICK ME</div></div></a>
-    </div>-->
     <div id="bio">My name is Fernando Pimentel. I'm a creative developer, front-end web engineer, and a digital artist.
       my goal is to master computer graphics and show the world my vision. For now, I'm looking for work involving
       3D and 2D web art/design.<br/><br/> Currently I work on my own terms and find clients in need of a unique website design,
@@ -218,21 +211,22 @@ onMounted(() => {
   width: 50vw;
 }
 
-@keyframes portfol {
-  0% {opacity: 0}
-  100% {opacity: 70%}
+#scroll{
+  position: absolute;
+  animation: scroller;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  font-size: 2.5vw;
+  bottom: 10vh;
+  padding-left: 5vw;
 }
-@keyframes offhover {
-  0% {opacity: 70%}
-  100% {opacity: 0}
+
+@keyframes scroller {
+  0% {opacity: 100%}
+  50% {opacity: 0%}
+  100% {opacity: 100%}
 }
-#portPics{
-  margin: 10px 15px 0 15px;
-  width: 110px;
-  height: 110px;
-  border-radius: 5%;
-  box-shadow: 3px 3px 5px black;
-}
+
 #htmlPage3{
   overflow-x: hidden;
   overflow-y: hidden;
