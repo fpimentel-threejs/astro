@@ -7,12 +7,18 @@
     </div>
 
     <div id="htmlPage2">
-      <div style="padding-top: 20vh">
+      <!--<div style="padding-top: 20vh">
       <div id="mywork">MY WORK</div>
       <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="overlay">CLICK ME</div></div></a>
       <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="overlay">CLICK ME</div></div></a>
       <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="overlay">CLICK ME</div></div></a>
       <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="overlay">CLICK ME</div></div></a>
+      </div>-->
+      <div id="bio">My name is Fernando Pimentel. I'm a creative developer, front-end web engineer, and a digital artist.
+        my goal is to master computer graphics and show the world my vision. For now, I'm looking for work involving
+        3D and 2D web art/design.<br/><br/> Currently I work on my own terms and find clients in need of a unique website design,
+        however I am willing to join a team in need of my skills. To see samples of my work, <a href="https://legendary-gnome-c0ca94.netlify.app/" style="text-decoration: underline;color: greenyellow">click here</a>, or you can
+        contact me below.
       </div>
     </div>
 
@@ -50,11 +56,27 @@
     </Scene>
   </Renderer>
 
+  <Renderer style="position: absolute; top: 100vh" ref="rendererD" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
+    <Camera ref="cameraD" :position="{ z: -20 }" />
+    <Scene>
+      <AmbientLight :intensity="2" :position="{ y: 0, z: 0 }" />
+      <PointLight :intensity="1" :position="{ y: 0, z: 0 }" />
+
+
+      <!--<Group :position="{z: 50}" :rotation="{y: 90*Math.PI / 180}">
+        <GltfModel
+            src="/plane.gltf"
+        />
+      </Group>-->
+
+    </Scene>
+  </Renderer>
+
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs';
+import { GltfModel, StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs';
 import { Vector3, BufferAttribute, BufferGeometry, PointsMaterial} from "three";
 import * as THREE from 'three'
 const rendererC = ref()
@@ -62,6 +84,7 @@ const pointsC = ref()
 const pointsD = ref()
 const cameraC = ref()
 const satteliteC = ref()
+const rendererD = ref()
 
 function createCircleTexture(color, size) {
   var matCanvas = document.createElement('canvas');
@@ -128,6 +151,7 @@ geometry2.setAttribute(
 
 onMounted(() => {
   const renderer = rendererC.value
+  const renderer2 = rendererD.value
   const points1 = pointsC.value
   const points2 = pointsD.value
   const camera = cameraC.value.camera
@@ -165,7 +189,9 @@ onMounted(() => {
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');#navbar{
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Noto+Serif+JP:wght@200&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');
+
+#navbar{
   font-family: 'Comfortaa', cursive;
   padding: 5vh 5vw;
   overflow: hidden;
@@ -206,6 +232,16 @@ onMounted(() => {
   height: 100vh;
   width: 80vw;
   background-image: linear-gradient(black, rgb(48,120,164));
+}
+
+#bio{
+  line-height: 5vw;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3vh;
+  border-left: solid .2vw white;
+  padding: 0 0 0 2vw;
+  margin: 20vh 0 10vh 20vw;
+  width: 60vw;
 }
 
 #mywork{
