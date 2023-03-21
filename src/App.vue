@@ -2,41 +2,42 @@
 
   <div id="navbar"><img width="25vw" src="/letter-f-16.ico"/></div>
 
-    <div id="htmlPage">
-      <div id="headline">Innovative designs for modern ventures</div>
-    </div>
+  <div id="htmlPage">
+    <div id="headline">Innovative designs for modern ventures</div>
 
-    <div id="htmlPage2">
-      <!--<div style="padding-top: 20vh">
-      <div id="mywork">MY WORK</div>
-      <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="overlay">CLICK ME</div></div></a>
-      <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="overlay">CLICK ME</div></div></a>
-      <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="overlay">CLICK ME</div></div></a>
-      <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="overlay">CLICK ME</div></div></a>
-      </div>-->
-      <div id="bio">My name is Fernando Pimentel. I'm a creative developer, front-end web engineer, and a digital artist.
-        my goal is to master computer graphics and show the world my vision. For now, I'm looking for work involving
-        3D and 2D web art/design.<br/><br/> Currently I work on my own terms and find clients in need of a unique website design,
-        however I am willing to join a team in need of my skills. To see samples of my work, <a href="https://legendary-gnome-c0ca94.netlify.app/" style="text-decoration: underline;color: greenyellow">click here</a>, or you can
-        contact me below.
-      </div>
-    </div>
+  </div>
 
-    <div id="htmlPage3">
-      <img id="clouds" src="/clouds.png"/>
-      <img id="clouds2" src="/clouds.png"/>
-      <img id="clouds3" src="/clouds.png"/>
-      <img id="clouds4" src="/clouds.png"/>
+  <div id="htmlPage2">
+    <!--<div style="padding-top: 20vh">
+    <div id="mywork">MY WORK</div>
+    <a href="https://endearing-unicorn-b097ea.netlify.app"><div id="portfolio"><img id="portPics" src="/resumePage.png"/><div id="overlay">CLICK ME</div></div></a>
+    <a href="https://snazzy-churros-95d36a.netlify.app/"><div id="portfolio"><img id="portPics" src="/onePNG.png"/><div id="overlay">CLICK ME</div></div></a>
+    <a href="https://shiny-gelato-786a5b.netlify.app/"><div id="portfolio"><img id="portPics" src="/solarsystem.png"/><div id="overlay">CLICK ME</div></div></a>
+    <a href="https://www.youtube.com/watch?v=9WIJQ6QJ_xQ"><div id="portfolio"><img id="portPics" src="/tompademo.png"/><div id="overlay">CLICK ME</div></div></a>
+    </div>-->
+    <div id="bio">My name is Fernando Pimentel. I'm a creative developer, front-end web engineer, and a digital artist.
+      my goal is to master computer graphics and show the world my vision. For now, I'm looking for work involving
+      3D and 2D web art/design.<br/><br/> Currently I work on my own terms and find clients in need of a unique website design,
+      however I am willing to join a team in need of my skills. To see samples of my work, <a href="https://legendary-gnome-c0ca94.netlify.app/" style="text-decoration: underline;color: greenyellow">click here</a>, or you can
+      contact me below.
     </div>
+  </div>
 
-    <div id="contact">
-      <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
-      <div style="margin: 0 5vw;">
-        <a href="https://www.linkedin.com/in/fpimentel/"><img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" /></a>
-        <a href="https://github.com/fpimentel-threejs/"><img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" /></a>
-        <a href="https://www.instagram.com/rxnando/"><img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" /></a>
-      </div>
+  <div id="htmlPage3">
+    <img id="clouds" src="/clouds.png"/>
+    <img id="clouds2" src="/clouds.png"/>
+    <img id="clouds3" src="/clouds.png"/>
+    <img id="clouds4" src="/clouds.png"/>
+  </div>
+
+  <div id="contact">
+    <div style="width: 36vw; padding: 40vh 32vw 0 32vw">CONTACT ME</div>
+    <div style="margin: 0 5vw;">
+      <a href="https://www.linkedin.com/in/fpimentel/"><img style="margin: 5vh 10vw; width: 10vw;" src="/linkedinlogo.svg" /></a>
+      <a href="https://github.com/fpimentel-threejs/"><img style="margin: 5vh 10vw; width: 10vw;" src="/githublogo.svg" /></a>
+      <a href="https://www.instagram.com/rxnando/"><img style="margin: 5vh 10vw; width: 10vw;" src="/instagramlogo.svg" /></a>
     </div>
+  </div>
 
   <Renderer ref="rendererC" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
     <Camera ref="cameraC" :position="{ z: -20 }" />
@@ -85,7 +86,6 @@ const pointsD = ref()
 const cameraC = ref()
 const satteliteC = ref()
 const rendererD = ref()
-
 function createCircleTexture(color, size) {
   var matCanvas = document.createElement('canvas');
   matCanvas.width = matCanvas.height = size;
@@ -105,24 +105,20 @@ function createCircleTexture(color, size) {
   // return a texture made from the canvas
   return texture;
 }
-
 const starMaterial = new PointsMaterial({
   size: .5,
   map: createCircleTexture('#ffffff', 256),
   transparent: true,
   depthWrite: false
 });
-
 const starMaterial2 = new PointsMaterial({
   size: 1,
   map: createCircleTexture('#ffffff', 256),
   transparent: true,
   depthWrite: false
 });
-
 const geometry = new BufferGeometry();
 const geometry2 = new BufferGeometry();
-
 const getRandomParticlePos = (particleCount) => {
   const arr = new Float32Array(particleCount * 3);
   for(let i = 0; i < particleCount; i++) {
@@ -130,7 +126,6 @@ const getRandomParticlePos = (particleCount) => {
   }
   return arr;
 }
-
 const getRandomParticlePos2 = (particleCount) => {
   const arr = new Float32Array(particleCount * 3);
   for(let i = 0; i < particleCount; i++) {
@@ -138,17 +133,14 @@ const getRandomParticlePos2 = (particleCount) => {
   }
   return arr;
 }
-
 geometry.setAttribute(
     "position",
     new BufferAttribute(getRandomParticlePos(4000),3)
 );
-
 geometry2.setAttribute(
     "position",
     new BufferAttribute(getRandomParticlePos2(4000),3)
 );
-
 onMounted(() => {
   const renderer = rendererC.value
   const renderer2 = rendererD.value
@@ -157,40 +149,28 @@ onMounted(() => {
   const camera = cameraC.value.camera
   const rendererRef = rendererC.value.renderer
   const sattelite = satteliteC.value.group
-
-
   points1.setMaterial(starMaterial)
   points1.setGeometry(geometry)
-
   points2.setMaterial(starMaterial2)
   points2.setGeometry(geometry2)
-
   function updateCamera() {
     camera.updateProjectionMatrix()
   }
-
   let time = 0
-
   renderer.onBeforeRender(() => {
-
     time++;
-
     points1.mesh.rotation.x -= .00064
     points2.mesh.rotation.x -= .0004
-
     sattelite.position.x = Math.cos( time/500 ) * 4 + 20;
     sattelite.position.y = Math.cos( time/500 ) * 5 + 10;
     sattelite.position.z = Math.cos( time/100 ) * 2 + 100;
-
     updateCamera()
   })
 })
 </script>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Noto+Serif+JP:wght@200&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');
-
 #navbar{
   font-family: 'Comfortaa', cursive;
   padding: 5vh 5vw;
@@ -202,7 +182,6 @@ onMounted(() => {
   z-index: 100;
   background-color: transparent;
 }
-
 #htmlPage{
   overflow-x: hidden;
   position: absolute;
@@ -212,7 +191,6 @@ onMounted(() => {
   height: 100vh;
   width: 100vw;
 }
-
 #headline{
   margin: 30vh 0vw 30vh 40vw;
   width: 50vw;
@@ -220,79 +198,34 @@ onMounted(() => {
   font-family: 'Rubik', sans-serif;
   justify-items: center;
 }
-
 #htmlPage2{
   font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
   position: absolute;
   color: #ffefff;
   margin-top: 100vh;
-  padding: 0 10vw;
-  font-size: 10vw;
   height: 100vh;
-  width: 80vw;
+  width: 100vw;
   background-image: linear-gradient(black, rgb(48,120,164));
 }
-
 #bio{
-  line-height: 5vw;
+  line-height: clamp(1em, 5vw, 2em);
   font-family: 'Noto Serif JP', serif;
-  font-size: 3vh;
+  font-size: clamp(0.15em, 3vw, 1em);
   border-left: solid .2vw white;
   padding: 0 0 0 2vw;
-  margin: 20vh 0 10vh 20vw;
-  width: 60vw;
-}
-
-#mywork{
-  font-family: 'Roboto', cursive;
-}
-
-#portfolio{
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin: 3vh 3vh;
-  background-color: beige;
-  border-radius: 5%;
-}
-
-#overlay{
-  display: none;
-  position: absolute;
-  width: 110px;
-  height: 110px;
-  opacity: 0;
-  background-color: gray;
-  border-radius: 5%;
-  z-index: 10;
-  font-size: 30px;
-  color: #ffefff;
-  margin: 10px 15px 0 15px;
-}
-
-#overlay:hover {
-  animation: portfol;
-  animation-duration: .5s;
-  animation-fill-mode: forwards;
-}
-
-#overlay:not(:hover) {
-  animation: offhover;
-  animation-duration: .5s;
-  animation-fill-mode: forwards;
+  margin: 20vh 0 10vh 40vw;
+  width: 50vw;
 }
 
 @keyframes portfol {
   0% {opacity: 0}
   100% {opacity: 70%}
 }
-
 @keyframes offhover {
   0% {opacity: 70%}
   100% {opacity: 0}
 }
-
 #portPics{
   margin: 10px 15px 0 15px;
   width: 110px;
@@ -300,7 +233,6 @@ onMounted(() => {
   border-radius: 5%;
   box-shadow: 3px 3px 5px black;
 }
-
 #htmlPage3{
   overflow-x: hidden;
   overflow-y: hidden;
@@ -312,7 +244,6 @@ onMounted(() => {
   height: 100vh;
   width: 100vw;
 }
-
 #contact{
   font-family: 'Comfortaa', cursive;
   overflow-x: hidden;
@@ -326,7 +257,6 @@ onMounted(() => {
   width: 100vw;
   z-index: 10;
 }
-
 #clouds{
   opacity: 0;
   bottom: 0;
@@ -336,7 +266,6 @@ onMounted(() => {
   animation-delay: 0s;
   animation-iteration-count: infinite;
 }
-
 #clouds2{
   opacity: 0;
   bottom: 0;
@@ -346,7 +275,6 @@ onMounted(() => {
   animation-delay: 5s;
   animation-iteration-count: infinite;
 }
-
 #clouds3{
   opacity: 0;
   bottom: 0;
@@ -356,7 +284,6 @@ onMounted(() => {
   animation-delay: 10s;
   animation-iteration-count: infinite;
 }
-
 #clouds4{
   opacity: 0;
   bottom: 0;
@@ -366,7 +293,6 @@ onMounted(() => {
   animation-delay: 15s;
   animation-iteration-count: infinite;
 }
-
 @keyframes cloud {
   0% {scale: 100%; translate: 0 0; opacity: 0;}
   30% {opacity: 40}
@@ -375,7 +301,6 @@ onMounted(() => {
   70% {opacity: 20}
   100% {scale: 160%; translate: 40vw 40vh; opacity: 0}
 }
-
 body {
   overflow-x: hidden;
   overflow-y: auto;
