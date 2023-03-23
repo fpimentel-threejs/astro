@@ -4,7 +4,10 @@
 
   <div id="htmlPage">
     <div id="headline">Innovative designs for modern ventures</div>
-    <div id="scroll">scroll down</div>
+    <div id="scroll">SCROLL DOWN</div>
+    <div id="scroll2">SCROLL DOWN</div>
+    <div id="scroll3">SCROLL DOWN</div>
+
   </div>
 
   <div id="htmlPage2">
@@ -163,7 +166,8 @@ onMounted(() => {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Noto+Serif+JP:wght@200&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Noto+Serif+JP:wght@200&family=Orbitron&family=Roboto:wght@300&family=Rubik:wght@500&display=swap');
+
 #navbar{
   font-family: 'Comfortaa', cursive;
   padding: 5vh 5vw;
@@ -212,19 +216,45 @@ onMounted(() => {
 }
 
 #scroll{
+  font-family: 'Orbitron', sans-serif;
   position: absolute;
   animation: scroller;
   animation-iteration-count: infinite;
-  animation-duration: 3s;
+  animation-duration: 1s;
   font-size: 2.5vw;
   bottom: 10vh;
   padding-left: 5vw;
 }
 
+#scroll2{
+  font-family: 'Orbitron', sans-serif;
+  position: absolute;
+  animation: scroller;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-delay: .3s;
+  font-size: 2.5vw;
+  bottom: 10vh;
+  padding-left: 10vw;
+}
+
+#scroll3{
+  font-family: 'Orbitron', sans-serif;
+  position: absolute;
+  animation: scroller;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-delay: .6s;
+  font-size: 2.5vw;
+  bottom: 10vh;
+  padding-left: 15vw;
+}
+
 @keyframes scroller {
   0% {opacity: 100%}
-  50% {opacity: 0%}
-  100% {opacity: 100%}
+  25% {opacity: 0%}
+  50% {opacity: 100%}
+  100% {opacity: 0%}
 }
 
 #htmlPage3{
