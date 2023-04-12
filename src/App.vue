@@ -50,30 +50,52 @@
         <Box :position="{y: -6}" :width="1.5" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
       </Group>
 
+      <!--<Text
+          text="INNOVATIVE SOLUTIONS"
+          font-src="/LEMON MILK Bold_Regular.json"
+          :size="5"
+          :height="4"
+          :position="{x: 100, z: 120}"
+          :rotation="{y: Math.PI}"
+      ><BasicMaterial :color="0xffffff"/></Text>
+      <Text
+          text="FOR MODERN VENTURES"
+          font-src="/LEMON MILK Bold_Regular.json"
+          :size="5"
+          :height="4"
+          :position="{x: 100,y: -20, z: 120}"
+          :rotation="{y: Math.PI}"
+      ><BasicMaterial :color="0xffffff"/></Text>-->
+
+      <EffectComposer>
+        <RenderPass />
+        <UnrealBloomPass :strength="1" />
+      </EffectComposer>
+
     </Scene>
   </Renderer>
 
-  <Renderer style="position: absolute; top: 100vh" ref="rendererD" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
+  <!--<Renderer style="position: absolute; top: 100vh" ref="rendererD" :alpha="true" antialias :orbit-ctrl="{ enabled: false }" resize="window">
     <Camera ref="cameraD" :position="{ z: -20 }" />
     <Scene>
       <AmbientLight :intensity="2" :position="{ y: 0, z: 0 }" />
       <PointLight :intensity="1" :position="{ y: 0, z: 0 }" />
 
 
-      <!--<Group :position="{z: 50}" :rotation="{y: 90*Math.PI / 180}">
+      <Group :position="{z: 50}" :rotation="{y: 90*Math.PI / 180}">
         <GltfModel
             src="/plane.gltf"
         />
-      </Group>-->
+      </Group>
 
     </Scene>
-  </Renderer>
+  </Renderer>-->
 
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { GltfModel, StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs';
+import { Text, EffectComposer, RenderPass, UnrealBloomPass, HalftonePass, GltfModel, StandardMaterial, Texture, Sphere, Cylinder, AmbientLight, Points, Box, Camera, LambertMaterial, PointLight, Renderer, Scene } from 'troisjs';
 import { Vector3, BufferAttribute, BufferGeometry, PointsMaterial} from "three";
 import * as THREE from 'three'
 const rendererC = ref()
@@ -82,6 +104,8 @@ const pointsD = ref()
 const cameraC = ref()
 const satteliteC = ref()
 const rendererD = ref()
+
+//create circle texture for stars
 function createCircleTexture(color, size) {
   var matCanvas = document.createElement('canvas');
   matCanvas.width = matCanvas.height = size;
@@ -182,11 +206,11 @@ onMounted(() => {
 #htmlPage{
   overflow-x: hidden;
   position: absolute;
-  background-color: black;
   color: white;
   font-size: 10vw;
   height: 100vh;
   width: 100vw;
+  z-index: 100;
 }
 #headline{
   margin: 30vh 0vw 30vh 40vw;
