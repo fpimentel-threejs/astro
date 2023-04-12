@@ -4,10 +4,11 @@
 
   <div id="htmlPage">
     <div id="headline">Innovative designs for modern ventures</div>
-    <div id="scroll">SCROLL DOWN</div>
+    <!--<div id="scroll">SCROLL DOWN</div>
     <div id="scroll2">SCROLL DOWN</div>
-    <div id="scroll3">SCROLL DOWN</div>
-
+    <div id="scroll3">SCROLL DOWN</div>-->
+    <div id="module" class="module" style="position: absolute; left: 20vw; top: 50vh;"><img style="width: 20vw" src="/flames.png"/></div>
+    <div id="module2" class="module2" style="position: absolute; left: 20vw; top: 50vh;"><img style="width: 20vw" src="/notflying.png"/></div>
   </div>
 
   <div id="htmlPage2">
@@ -41,14 +42,15 @@
       <AmbientLight :intensity="1" :position="{ y: 0, z: 0 }" />
       <Points ref="pointsC" :position="{y: 0,z: -30}"/>
       <Points ref="pointsD" :position="{y: 0,z: -30}"/>
-      <Group ref="satteliteC" :rotation="{x: 1, y: 1, z: 1}">
+      <PointLight :color="0xffffff" :intensity="10" :position="{ x: 20, y: 10, z: 105 }" />
+      <!--<Group ref="satteliteC" :rotation="{x: 1, y: 1, z: 1}">
         <Cylinder :rotation="{z: 90*Math.PI /180}" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg" /></StandardMaterial></Cylinder>
         <Cylinder :rotation="{z: 90*Math.PI /180}" :height="6" :radiusTop=".3" :radiusBottom="2"><StandardMaterial><Texture src="/spacemetal1.jpg" /></StandardMaterial></Cylinder>
         <Cylinder :position="{y: 2}" :radiusTop=".3" :radiusBottom=".1" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
         <Cylinder :position="{y: -2}" :radiusTop=".1" :radiusBottom=".3" :height="4"><StandardMaterial><Texture src="/spacemetal1.png" /></StandardMaterial></Cylinder>
         <Box :position="{y: 6}" :width="2" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
         <Box :position="{y: -6}" :width="1.5" :depth=".5" :height="4"><StandardMaterial><Texture src="/spacemetal1.jpg"/></StandardMaterial></Box>
-      </Group>
+      </Group>-->
 
       <!--<Text
           text="INNOVATIVE SOLUTIONS"
@@ -102,8 +104,9 @@ const rendererC = ref()
 const pointsC = ref()
 const pointsD = ref()
 const cameraC = ref()
-const satteliteC = ref()
+//const satteliteC = ref()
 const rendererD = ref()
+
 
 //create circle texture for stars
 function createCircleTexture(color, size) {
@@ -162,13 +165,14 @@ geometry2.setAttribute(
     new BufferAttribute(getRandomParticlePos2(4000),3)
 );
 onMounted(() => {
+
   const renderer = rendererC.value
   const renderer2 = rendererD.value
   const points1 = pointsC.value
   const points2 = pointsD.value
   const camera = cameraC.value.camera
   const rendererRef = rendererC.value.renderer
-  const sattelite = satteliteC.value.group
+  //const sattelite = satteliteC.value.group
   points1.setMaterial(starMaterial)
   points1.setGeometry(geometry)
   points2.setMaterial(starMaterial2)
@@ -181,9 +185,9 @@ onMounted(() => {
     time++;
     points1.mesh.rotation.x -= .00064
     points2.mesh.rotation.x -= .0004
-    sattelite.position.x = Math.cos( time/500 ) * 4 + 20;
+    /*sattelite.position.x = Math.cos( time/500 ) * 4 + 20;
     sattelite.position.y = Math.cos( time/500 ) * 5 + 10;
-    sattelite.position.z = Math.cos( time/100 ) * 2 + 100;
+    sattelite.position.z = Math.cos( time/100 ) * 2 + 100;*/
     updateCamera()
   })
 })
@@ -349,6 +353,43 @@ onMounted(() => {
   70% {opacity: 20}
   100% {scale: 160%; translate: 40vw 40vh; opacity: 0}
 }
+
+#module {
+  animation-name: flames;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  z-index: 250;
+}
+
+#module2 {
+  animation-name: notflying;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flames {
+  0% {left: 20vw; top: 50vh; opacity: 0%; scale: 100%}
+  15% {opacity: 0%}
+  20% {left: 20vw; top: 50vh; opacity: 100%; scale: 100%}
+  30% {opacity: 100%}
+  35% {opacity: 0%}
+  40% {left: 25vw; top: 48vh; opacity: 100%; scale: 80%}
+  50% {opacity: 100%}
+  55% {opacity: 0%}
+  60% {left: 30vw; top: 46vh; opacity: 0%; scale: 60%}
+  80% {left: 30vw; top: 46vh; opacity: 0%; scale: 60%}
+  100% {left: 20vw; top: 50vh; opacity: 0%; scale: 60%}
+}
+
+@keyframes notflying {
+  0% {left: 20vw; top: 50vh; scale: 100%}
+  20% {left: 20vw; top: 50vh; scale: 100%}
+  40% {left: 25vw; top: 48vh; scale: 80%}
+  60% {left: 30vw; top: 46vh; scale: 60%}
+  80% {left: 30vw; top: 46vh; scale: 60%}
+  100% {left: 20vw; top: 50vh; scale: 100%}
+}
+
 body {
   overflow-x: hidden;
   overflow-y: auto;
