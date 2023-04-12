@@ -7,8 +7,8 @@
     <!--<div id="scroll">SCROLL DOWN</div>
     <div id="scroll2">SCROLL DOWN</div>
     <div id="scroll3">SCROLL DOWN</div>-->
-    <div id="module" class="module" style="position: absolute; left: 20vw; top: 50vh;"><img style="width: 20vw" src="/flames.png"/></div>
-    <div id="module2" class="module2" style="position: absolute; left: 20vw; top: 50vh;"><img style="width: 20vw" src="/notflying.png"/></div>
+    <div id="module" class="module" style="position: absolute; left: 20vw; top: 50vh;"><img style="width:20vh" src="/flames.png"/></div>
+    <div id="module2" class="module2" style="position: absolute; left: 20vw; top: 50vh;"><img style="width: 20vh" src="/notflying.png"/></div>
   </div>
 
   <div id="htmlPage2">
